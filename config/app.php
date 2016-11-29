@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Lynk\Providers\AppServiceProvider::class,
+        Lynk\Providers\AuthServiceProvider::class,
+        // Lynk\Providers\BroadcastServiceProvider::class,
+        Lynk\Providers\EventServiceProvider::class,
+        Lynk\Providers\RouteServiceProvider::class,
 
     ],
 
