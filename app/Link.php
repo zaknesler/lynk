@@ -1,0 +1,10 @@
+<?php
+
+namespace Lynk;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Link extends Model
+{
+    //
+}
