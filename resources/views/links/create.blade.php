@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="panel-body">
-                        <form role="form" class="form" method="POST" action="{{ route('plugins.store') }}">
+                        <form role="form" class="form" method="POST" action="{{ route('links.store') }}">
                             {{ csrf_field() }}
                             
                             {{ method_field('PATCH') }}
