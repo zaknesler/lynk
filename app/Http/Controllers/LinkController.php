@@ -44,6 +44,6 @@ class LinkController extends Controller
             'has_custom_code' => $request->input('code') ? true : false,
         ]);
         
-        return 'https://lynk.ml/' . $link->code;
+        dd($link);
     }
 }
