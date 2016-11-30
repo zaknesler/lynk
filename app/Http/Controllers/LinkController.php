@@ -4,6 +4,7 @@ namespace Lynk\Http\Controllers;
 
 use Lynk\Link;
 use Illuminate\Http\Request;
+use Lynk\Http\Requests\Links\StoreLinkFormRequest;
 
 class LinkController extends Controller
 {
@@ -31,18 +32,15 @@ class LinkController extends Controller
     /**
      * Store the link in the database.
      *
-     * @param  Request  $request
+     * @param  Lynk\Http\Requests\Links\StoreLinkFormRequest  $request
      * @param  Lynk\Link  $link
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, Link $link)
+    public function store(StoreLinkFormRequest $request, Link $link)
     {
         $link = $link->create([
             'url' => $request->input('url'),
-        ]);
-
-        $link->update([
-            'code' => $request->input('code') ?? generate_code($link->id),
+            'code' => $request->input('code') ?? str_random(6),
             'has_custom_code' => $request->input('code') ? true : false,
         ]);
     }

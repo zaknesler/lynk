@@ -22,3 +22,11 @@ $factory->define(Lynk\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(Lynk\Link::class, function (Faker\Generator $faker) {
+    return [
+        'url' => $faker->url,
+        'code' => str_random(6),
+    ];
+});
