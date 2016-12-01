@@ -13,6 +13,8 @@
 
 Route::get('/', 'LinkController@create')->name('links.create');
 
-Route::get('{link}', 'LinkController@show')->name('links.show');
+Route::get('links', 'LinkController@index')->name('links.index');
 
 Route::patch('links', 'LinkController@store')->name('links.store');
+
+Route::get('{link}', 'LinkController@show')->name('links.show');
