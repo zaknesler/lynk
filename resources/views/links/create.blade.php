@@ -18,7 +18,7 @@
                             <div class="form-group{{ $errors->first('url', ' has-error') }}">
                                 <label for="url" class="control-label">Url</label>
 
-                                <input id="url" type="url" class="form-control" name="url" value="{{ old('url') }}" required autofocus />
+                                <input id="url" type="url" class="form-control" name="url" value="{{ old('url') }}" required autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
 
                                 @if ($errors->has('url'))
                                     <span class="help-block">
@@ -30,7 +30,7 @@
                             <div class="form-group{{ $errors->first('code', ' has-error') }}">
                                 <label for="code" class="control-label">Code</label>
 
-                                <input id="code" type="text" class="form-control" name="code" value="{{ old('code') }}" />
+                                <input id="code" type="text" class="form-control" name="code" value="{{ old('code') }}" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
 
                                 @if ($errors->has('code'))
                                     <span class="help-block">
