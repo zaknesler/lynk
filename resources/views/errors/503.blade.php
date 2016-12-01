@@ -3,8 +3,6 @@
     <head>
         <title>Be right back.</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
         <style>
             html, body {
                 height: 100%;
@@ -14,10 +12,10 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: #777;
                 display: table;
-                font-weight: 100;
-                font-family: 'Lato', sans-serif;
+                font-weight: 300;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             }
 
             .container {
@@ -29,18 +27,27 @@
             .content {
                 text-align: center;
                 display: inline-block;
+                padding: 20px;
             }
 
             .title {
-                font-size: 72px;
-                margin-bottom: 40px;
+                font-size: 36px;
+            }
+
+            .title .small {
+                font-size: 20px;
+                color: #999;
             }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">
+                    <p>Lynk is currently down for maintenance.</p>
+
+                    <p class="small">Sorry for the inconvenience.</p>
+                </div>
             </div>
         </div>
     </body>

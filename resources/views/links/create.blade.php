@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Create Link')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -14,7 +12,7 @@
                     <div class="panel-body">
                         <form role="form" class="form" method="POST" action="{{ route('links.store') }}">
                             {{ csrf_field() }}
-                            
+
                             {{ method_field('PATCH') }}
 
                             <div class="form-group{{ $errors->first('url', ' has-error') }}">

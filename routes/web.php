@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('links/create', 'LinkController@create')->name('links.create');
+Route::get('/', 'LinkController@create')->name('links.create');
 
 Route::get('{link}', 'LinkController@show')->name('links.show');
 

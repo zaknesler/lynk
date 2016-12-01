@@ -38,4 +38,9 @@ class Link extends Model
     {
         return 'code';
     }
+
+    public function scopeHasRandomCode($query)
+    {
+        return $query->where('has_custom_code', false);
+    }
 }

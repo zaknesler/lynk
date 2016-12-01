@@ -38,12 +38,28 @@ class LinkController extends Controller
      */
     public function store(StoreLinkFormRequest $request, Link $link)
     {
+        if ($request->code) {
+            $link = $link->create([
+                'url' => $request->url,
+                'code' => $request->code,
+                'has_custom_code' => true,
+            ]);
+
+            return $link;
+        }
+
+        $linkFromUrl = $link->where('has_custom_code', false)->where('url', $request->url)->get();
+
+        if ($linkFromUrl->count()) {
+            return $linkFromUrl->first();
+        }
+
         $link = $link->create([
-            'url' => $request->input('url'),
-            'code' => $request->input('code') ?? str_random(6),
-            'has_custom_code' => $request->input('code') ? true : false,
+            'url' => $request->url,
+            'code' => str_random(6),
+            'has_custom_code' => false,
         ]);
-        
-        dd($link);
+
+        return $link;
     }
 }
