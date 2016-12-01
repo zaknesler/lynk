@@ -57,7 +57,7 @@ class LinkController extends Controller
             return $link;
         }
 
-        $linkFromUrl = Lynk::where('has_custom_code', false)->where('url', $request->url)->get();
+        $linkFromUrl = Link::where('has_custom_code', false)->where('url', $request->url)->get();
 
         if ($linkFromUrl->count()) {
             return $linkFromUrl->first();
