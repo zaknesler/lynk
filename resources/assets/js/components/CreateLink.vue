@@ -60,8 +60,6 @@
                         this.input.code = '';
 
                         this.response = response.data;
-
-                        this.message = ''
                     }, (response) => {
                         this.errors = response.data;
                     });
