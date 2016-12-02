@@ -25,7 +25,7 @@ class StoreLinkFormRequest extends FormRequest
     {
         return [
             'url' => 'required|url',
-            'code' => 'alpha_dash|unique:links,code',
+            'code' => 'alpha_dash|min:2|max:64|unique:links,code',
         ];
     }
 }

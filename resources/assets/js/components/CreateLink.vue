@@ -22,7 +22,7 @@
             </div>
 
             <div class="form-group" :class="errors.code ? 'has-error' : ''">
-                <input type="text" v-model="input.code" class="form-input" minlength="2" placeholder="google" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                <input type="text" v-model="input.code" class="form-input" minlength="2" maxlength="64" placeholder="google" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
 
                 <div v-if="errors.code" class="form-error">
                     {{ errors.code[0] }}
@@ -56,10 +56,10 @@
                 this.$http
                     .post('/links', this.input)
                     .then((response) => {
+                        this.response = response.data;
+
                         this.input.url = '';
                         this.input.code = '';
-
-                        this.response = response.data;
                     }, (response) => {
                         this.errors = response.data;
                     });
