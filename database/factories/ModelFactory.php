@@ -28,5 +28,6 @@ $factory->define(Lynk\Link::class, function (Faker\Generator $faker) {
     return [
         'url' => $faker->url,
         'code' => str_random(6),
+        'has_custom_code' => false,
     ];
 });
