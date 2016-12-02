@@ -37,6 +37,14 @@ class LinkController extends Controller
      */
     public function store(StoreLinkFormRequest $request)
     {
+        if (trim($request->code) == 0) {
+            return response([
+                'code' => [
+                    'The code field cannot be blank.'
+                ]
+            ], 422);
+        }
+
         if ($request->code) {
             $link = Link::create([
                 'url' => $request->url,
