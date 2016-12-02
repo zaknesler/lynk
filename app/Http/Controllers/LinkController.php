@@ -37,7 +37,7 @@ class LinkController extends Controller
      */
     public function store(StoreLinkFormRequest $request)
     {
-        if (trim($request->code) == 0) {
+        if (strlen(trim($request->code)) == 0) {
             $request->code = null;
         }
 
