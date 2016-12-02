@@ -30,16 +30,6 @@ class LinkController extends Controller
     }
 
     /**
-     * Show the page to create a new link.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('links.create');
-    }
-
-    /**
      * Store the link in the database.
      *
      * @param  Lynk\Http\Requests\Links\StoreLinkFormRequest  $request
