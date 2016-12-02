@@ -37,7 +37,7 @@ class LinkController extends Controller
      */
     public function store(StoreLinkFormRequest $request)
     {
-        if (trim($request->code) == 0) {
+        if ($request->code && trim($request->code) == 0) {
             return response([
                 'code' => [
                     'The code field cannot be blank.'
@@ -55,7 +55,7 @@ class LinkController extends Controller
             return $link;
         }
 
-        $linkFromUrl = Link::where('has_custom_code', false)->where('url', $request->url)->get();
+        $linkFromUrl = Link::hasRandomCode()->where('url', $request->url)->get();
 
         if ($linkFromUrl->count()) {
             return $linkFromUrl->first();
