@@ -2,7 +2,7 @@
     <form action="#" class="form" @submit.prevent="createLink">
         <div class="form-message">
             <span v-show="!response.code">
-                Enter a URL to shorten and an optional code.
+                Enter a URL to shorten with an optional short code.
             </span>
 
             <span v-show="response.code">

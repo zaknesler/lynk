@@ -72,6 +72,8 @@ class LinkTest extends TestCase
             'url' => 'https://example.com',
         ]);
 
+        $this->seeStatusCode(200);
+
         $this->assertEquals(1, Link::count());
     }
 
