@@ -9,7 +9,7 @@
 
         <title>Lynk</title>
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+        <link rel="stylesheet" href="{{ elixir('css/app.css') }}" />
 
         <script>
             window.Lynk = <?php echo json_encode([
@@ -25,6 +25,6 @@
             </div>
         </div>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ elixir('js/app.js') }}"></script>
     </body>
 </html>

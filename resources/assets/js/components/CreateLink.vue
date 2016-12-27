@@ -6,8 +6,8 @@
             </span>
 
             <span v-show="response.code">
-                <a :href="'https://lynk.ml/' + response.code">
-                    lynk.ml/{{ response.code }}
+                <a :href="$root.url + '/' + response.code">
+                    {{ $root.urlClean + '/' + response.code }}
                 </a>
             </span>
         </div>

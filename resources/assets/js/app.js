@@ -16,5 +16,11 @@ require('./bootstrap');
 Vue.component('create-link', require('./components/CreateLink.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    mounted () {
+        this.$root.url = Lynk.url;
+
+        this.$root.urlClean = Lynk.url.replace(/.*?:\/\//g, '');
+    }
 });
