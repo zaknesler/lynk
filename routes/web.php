@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/{code}', 'LinkController@show');
+
 Route::get('/', function () {
     return view('welcome');
 });
