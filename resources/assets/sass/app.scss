@@ -1,9 +1,117 @@
+@import 'variables';
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-// Variables
-@import "variables";
+::selection {
+    background: rgba(0, 0, 0, 0.075);
+}
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+[v-cloak] {
+    display: none;
+}
+
+body {
+    font-size: 20px;
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    color: $body-color;
+    font-weight: 400;
+}
+
+a {
+    color: $anchor-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $anchor-color-active;
+        transition: color 150ms ease-in-out;
+    }
+}
+
+.container {
+    padding: 80px;
+    max-width: 600px;
+}
+
+.heading {
+    font-size: 48px;
+    font-weight: 700;
+    color: $heading-color;
+}
+
+.message {
+    margin: 10px 0 20px 0;
+}
+
+.form-group:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.form-group.has-error .form-input {
+    border-color: #d6341f;
+}
+
+.form-input {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 18px;
+    color: $heading-color;
+    width: 100%;
+}
+
+.form-input:focus {
+    border-color: rgba(0, 0, 0, 0.4);
+    transition: border-color 150ms ease-in-out;
+    outline: 0;
+}
+
+.form-error {
+    margin-top: 5px;
+    color: $error-color;
+    font-size: 18px;
+}
+
+.button {
+    border: 1px solid $anchor-color;
+    padding: 15px 20px;
+    font-size: 18px;
+    background: $anchor-color;
+    color: $color-light;
+    border-radius: 3px;
+}
+
+.button:focus,
+.button:active,
+.button:hover {
+    background-color: $anchor-color-active;
+    border-color: $anchor-color-active;
+    transition: background-color 150ms ease-in-out, border-color 150ms ease-in-out;
+    outline: 0;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        padding: 60px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        padding: 40px;
+    }
+
+    .heading {
+        font-size: 40px;
+    }
+}

@@ -72,13 +72,24 @@ class LinkTest extends TestCase
             'code' => 'example',
         ]);
 
-        $response->assertStatus(409);
-        $response->assertJsonStructure([
-            'errors' => [
-                'code',
-            ],
+        $response->assertSessionHasErrors([
+            'code',
         ]);
 
         $this->assertEquals(1, Link::count());
+    }
+
+    /** @test */
+    function url_must_be_valid()
+    {
+        $response = $this->post('/api/links', [
+            'url' => 'invalid-url',
+        ]);
+
+        $response->assertSessionHasErrors([
+            'url',
+        ]);
+
+        $this->assertEquals(0, Link::count());
     }
 }

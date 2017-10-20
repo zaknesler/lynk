@@ -21,18 +21,10 @@ class LinkController extends Controller
             return new LinkResponse($link);
         }
 
-        if (request('code') && (Link::whereCode(request('code'))->count() > 0)) {
-            return response()->json([
-                'errors' => [
-                    'code' => 'Code already exists',
-                ],
-            ], 409);
-        }
-
         $link = Link::create([
             'url' => request('url'),
             'code' => $code = request('code') ?? str_random(6),
-            'has_custom_code' => request()->has('code'),
+            'has_custom_code' => isset($request->code),
         ]);
 
         Cache::forever('link.' . $code, $link);
@@ -50,6 +42,6 @@ class LinkController extends Controller
     {
         $link = Link::whereCode($code)->firstOrFail();
 
-        return redirect()->to($link);
+        return redirect()->to($link->url);
     }
 }
