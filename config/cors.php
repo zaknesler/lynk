@@ -13,7 +13,7 @@ return [
     */
 
     'supportsCredentials' => false,
-    'allowedOrigins' => [],
+    'allowedOrigins' => ['localhost', config('app.url')],
     'allowedHeaders' => [],
     'allowedMethods' => [],
     'exposedHeaders' => [],

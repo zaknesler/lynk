@@ -34,6 +34,21 @@ class LinkTest extends TestCase
     }
 
     /** @test */
+    function shortened_url_without_custom_code_redirects_to_original_url()
+    {
+        $response = $this->post('/api/links', [
+            'url' => 'https://example.com',
+        ]);
+
+        $response->assertSuccessful();
+
+        $response = $this->get('/' . Link::first()->code);
+
+        $response->assertStatus(302);
+        $response->assertRedirect('https://example.com');
+    }
+
+    /** @test */
     function a_url_can_be_shortened_with_a_code()
     {
         $response = $this->post('/api/links', [
@@ -54,6 +69,22 @@ class LinkTest extends TestCase
         $this->assertEquals('https://example.com', $link->url);
         $this->assertTrue($link->has_custom_code);
         $this->assertTrue(Cache::has('link.' . $link->code));
+    }
+
+    /** @test */
+    function shortened_url_with_custom_code_redirects_to_original_url()
+    {
+        $response = $this->post('/api/links', [
+            'url' => 'https://example.com',
+            'code' => 'example',
+        ]);
+
+        $response->assertSuccessful();
+
+        $response = $this->get('/example');
+
+        $response->assertStatus(302);
+        $response->assertRedirect('https://example.com');
     }
 
     /** @test */
