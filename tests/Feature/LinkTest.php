@@ -111,6 +111,24 @@ class LinkTest extends TestCase
     }
 
     /** @test */
+    function link_with_random_code_cannot_be_shortened_more_than_once()
+    {
+        $response = $this->post('/api/links', [
+            'url' => 'https://example.com',
+        ]);
+
+        $response->assertSuccessful();
+
+        $response = $this->post('/api/links', [
+            'url' => 'https://example.com',
+        ]);
+
+        $response->assertSuccessful();
+
+        $this->assertEquals(1, Link::count());
+    }
+
+    /** @test */
     function url_must_be_valid()
     {
         $response = $this->post('/api/links', [
@@ -119,6 +137,21 @@ class LinkTest extends TestCase
 
         $response->assertSessionHasErrors([
             'url',
+        ]);
+
+        $this->assertEquals(0, Link::count());
+    }
+
+    /** @test */
+    function code_must_be_valid()
+    {
+        $response = $this->post('/api/links', [
+            'url' => 'https://example.com',
+            'code' => 'n',
+        ]);
+
+        $response->assertSessionHasErrors([
+            'code',
         ]);
 
         $this->assertEquals(0, Link::count());
