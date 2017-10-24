@@ -9,7 +9,7 @@
 
         <title>{{ config('app.name') }}</title>
 
-        <link rel="icon" href="/favicon.jpg" />
+        <link rel="icon" href="/favicon.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700" />
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}" />
 
