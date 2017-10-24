@@ -7,7 +7,7 @@
         <div class="body">
             <form class="form" @submit.prevent="createLink">
                 <div class="form-group" :class="{'has-error': errors.url}">
-                    <input type="text" class="form-input" v-model="input.url" placeholder="Enter a url..." required />
+                    <input type="url" class="form-input" v-model="input.url" placeholder="Enter a url..." required />
 
                     <div class="form-error" v-if="errors.url">{{ errors.url[0] }}</div>
                 </div>
@@ -44,18 +44,11 @@
         },
 
         methods: {
-            getFormattedUrl() {
-                return (this.input.url.indexOf('://') === -1) ? 'http://' + this.input.url : this.input.url;
-            },
-
             createLink() {
                 this.errors = [];
 
                 this.$http
-                    .post('/api/links', {
-                        url: this.getFormattedUrl(),
-                        code: this.input.code
-                    })
+                    .post('/api/links', this.input)
                     .then((response) => {
                         this.response = response.data;
 
